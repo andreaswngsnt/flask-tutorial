@@ -1,5 +1,6 @@
 flask-tutorial.sln
-flask-tutorial.slnproj
+flask-tutorial.pyproject
+.vs/
 
 venv/
 
