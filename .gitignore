@@ -1,5 +1,5 @@
-flask-tutorial.sln
-flask-tutorial.pyproject
+*.sln
+*.pyproj
 .vs/
 
 venv/
