@@ -1,3 +1,6 @@
+flask-tutorial.sln
+flask-tutorial.slnproj
+
 venv/
 
 *.pyc
