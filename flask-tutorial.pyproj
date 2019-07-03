@@ -68,6 +68,9 @@
     <Content Include="MANIFEST.in">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="setup.cfg">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="tests\data.sql">
       <SubType>Code</SubType>
     </Content>
@@ -89,6 +92,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\conftest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\test_auth.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\test_blog.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\test_db.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\test_factory.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
