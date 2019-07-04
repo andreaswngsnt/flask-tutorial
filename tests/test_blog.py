@@ -14,6 +14,7 @@ def test_index(client, auth):
 	assert b'test\nbody' in response.data
 	assert b'href="/1/update"' in response.data
 
+
 @pytest.mark.parametrize('path', (
 	'/create',
 	'/1/update',
@@ -23,7 +24,8 @@ def test_login_required(client, path):
 	response = client.post(path)
 	assert response.headers['Location'] == 'http://localhost/auth/login'
 
-def test_author_required(app, client, path):
+
+def test_author_required(app, client, auth):
 	# Change the post author to another user
 	with app.app_context():
 		db = get_db()
@@ -45,6 +47,7 @@ def test_author_required(app, client, path):
 def test_exists_required(client, auth, path):
 	auth.login()
 	assert client.post(path).status_code == 404
+
 
 def test_create(client, auth, app):
 	auth.login()
