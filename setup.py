@@ -9,6 +9,8 @@ setup(
 	install_requires = [
 		'flask',
 		'pytest',
-		'coverage'
+		'coverage',
+		'wheel',
+		'waitress'
 	],
 )
