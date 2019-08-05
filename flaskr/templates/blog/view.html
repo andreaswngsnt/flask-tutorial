@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>{% block title %}{{ post['title'] }}{% endblock %}</h1>
+
+	{% if g.user['id'] == post['author_id'] %}
+		<a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="about">by {{ post['author_username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
+<p>{{ post['body'] }}</p>
+<hr />
+<h2>Comments</h2>
+{% if comments %}
+	{% for comment in comments %}
+		<p class="body">{{ comment.body }}</p>
+		<p><small>written by: {{ comment.username }}</small></p>
+	{% endfor %}
+{% endif %}
+<hr />
+<h3>New Comment</h3>
+{% if g.user %}
+<form action={{ url_for('comment.create') }} method="post">
+	<input name="post_id" id="post-id" value="{{  post['id'] }}" hidden required />
+	<label for="body">Body</label>
+	<textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+	<input type="submit" value="Save" />
+</form>
+{% endif %}
+
+{% endblock %}
